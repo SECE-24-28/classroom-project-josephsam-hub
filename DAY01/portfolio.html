@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Joseph Sam M — Professional Portfolio</title>
+  <meta name="description" content="Portfolio of Joseph Sam M — AI/ML, Flutter, Python, Kotlin. Projects, internships, achievements, and contact." />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brandNavy: '#0b2545',
+            brandSlate: '#1f2937',
+            brandGold: '#bfa34a',
+            brandGrayLight: '#F5F7FA'
+          },
+          boxShadow: {
+            'soft-md': '0 6px 18px rgba(11,37,69,0.08)'
+          },
+          animation: {
+            float: 'float 6s ease-in-out infinite'
+          },
+          keyframes: {
+            float: {
+              '0%,100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-6px)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root { --glass-bg: rgba(255,255,255,0.03); }
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .brand-gradient {
+      background: linear-gradient(90deg, var(--tw-gradient-stops));
+      --tw-gradient-from: #0b2545;
+      --tw-gradient-to: #bfa34a;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .focus-ring:focus {
+      outline: 3px solid rgba(191,163,74,0.12);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="bg-brandGrayLight dark:bg-brandNavy text-slate-800 dark:text-slate-200 antialiased">
+  <!-- NAV -->
+  <header class="fixed w-full z-40">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative flex items-center justify-between h-16">
+        <a href="#hero" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-brandNavy dark:bg-slate-200 flex items-center justify-center text-white dark:text-brandNavy font-semibold">JS</div>
+          <div class="hidden sm:block">
+            <div class="text-sm font-semibold">Joseph Sam M</div>
+            <div class="text-xs text-slate-400 dark:text-slate-400">AI · ML · Mobile Dev</div>
+          </div>
+        </a>
+
+        <div class="hidden md:flex items-center gap-6">
+          <a class="text-sm hover:text-brandNavy dark:hover:text-brandGold transition" href="#about">About</a>
+          <a class="text-sm hover:text-brandNavy dark:hover:text-brandGold transition" href="#projects">Projects</a>
+          <a class="text-sm hover:text-brandNavy dark:hover:text-brandGold transition" href="#experience">Experience</a>
+          <a class="text-sm hover:text-brandNavy dark:hover:text-brandGold transition" href="#skills">Skills</a>
+          <a class="text-sm hover:text-brandNavy dark:hover:text-brandGold transition" href="#contact">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button id="themeToggle" aria-label="Toggle theme" class="p-2 rounded-md focus-ring glass" title="Toggle dark/light">
+            <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-700 dark:text-slate-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path id="themePath" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1M4.22 4.22l.7.7M18.36 18.36l.7.7M1 12h1m20 0h1M4.22 19.78l.7-.7M18.36 5.64l.7-.7M12 7a5 5 0 100 10 5 5 0 000-10z" />
+            </svg>
+          </button>
+
+          <a href="#contact" class="hidden sm:inline-flex items-center gap-2 rounded-lg px-3 py-2 bg-brandNavy text-white text-sm shadow-soft-md hover:opacity-95 transition">Contact</a>
+
+          <!-- mobile menu -->
+          <button id="menuBtn" class="md:hidden p-2 rounded-md glass focus-ring" aria-label="Open menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- mobile menu panel -->
+    <div id="mobileMenu" class="md:hidden hidden bg-brandGrayLight dark:bg-brandNavy border-t border-slate-200 dark:border-slate-800">
+      <div class="px-4 py-4 space-y-2">
+        <a class="block py-2 px-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800" href="#about">About</a>
+        <a class="block py-2 px-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800" href="#projects">Projects</a>
+        <a class="block py-2 px-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800" href="#experience">Experience</a>
+        <a class="block py-2 px-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800" href="#skills">Skills</a>
+        <a class="block py-2 px-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800" href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-20">
+    <!-- HERO -->
+    <section id="hero" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <p class="inline-flex items-center gap-2 text-sm bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-full px-3 py-1 mb-4 w-max">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brandNavy" viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2.6a1 1 0 01.894.553l.8 1.6A1 1 0 009.6 13H17a1 1 0 110 2H9.6a3 3 0 01-2.683-1.607l-.8-1.6A3 3 0 004.6 11H3a1 1 0 01-1-1z" /></svg>
+            Winner — InsureBot Quest 2025
+          </p>
+
+          <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">
+            Hi, I'm <span class="brand-gradient">Joseph Sam M</span><br />
+            AI & Mobile Developer
+          </h1>
+
+          <p class="mt-4 text-slate-600 dark:text-slate-300 max-w-xl">
+            Motivated AI/ML and app development enthusiast building intelligent systems, mobile apps, and automation tools. 1200+ coding challenges solved — I turn ideas into usable products with empathy and performance.
+          </p>
+
+          <div class="mt-6 flex flex-wrap gap-3 items-center">
+            <a href="#projects" class="px-4 py-2 rounded-md bg-brandNavy text-white text-sm hover:opacity-95 transition">See Projects</a>
+            <a href="mailto:josephsam.m2024aids@sece.ac.in" class="px-4 py-2 rounded-md border border-slate-200 dark:border-slate-700 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition">Email Me</a>
+            <a href="#" id="downloadResume" class="px-3 py-2 rounded-md text-sm text-slate-500 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Request Resume</a>
+          </div>
+
+          <!-- Stats -->
+          <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-soft-md">
+              <div class="text-2xl font-bold" data-target="1200">0+</div>
+              <div class="text-xs text-slate-400 mt-1">Coding Challenges</div>
+            </div>
+            <div class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-soft-md">
+              <div class="text-2xl font-bold" data-target="200">0+</div>
+              <div class="text-xs text-slate-400 mt-1">LeetCode Problems</div>
+            </div>
+            <div class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-soft-md">
+              <div class="text-2xl font-bold">Winner</div>
+              <div class="text-xs text-slate-400 mt-1">InsureBot Quest 2025</div>
+            </div>
+            <div class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-soft-md">
+              <div class="text-2xl font-bold">8.69</div>
+              <div class="text-xs text-slate-400 mt-1">B.Tech CGPA</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="relative">
+          <!-- card -->
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 shadow-soft-md">
+            <div class="flex items-center gap-4">
+              <div>
+                <div class="w-20 h-20 rounded-xl bg-brandNavy dark:bg-slate-200 flex items-center justify-center text-white dark:text-brandNavy font-bold text-lg">JS</div>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold">Joseph Sam M</h3>
+                <p class="text-xs text-slate-400">B.Tech — Artificial Intelligence & Data Science</p>
+                <p class="mt-2 text-sm text-slate-500 dark:text-slate-300">AI/ML • Flutter • Python • Kotlin</p>
+              </div>
+            </div>
+
+            <div class="mt-4 grid grid-cols-2 gap-3">
+              <div class="p-3 rounded-lg bg-white/40 dark:bg-slate-700/40">
+                <div class="text-xs text-slate-400">Phone</div>
+                <div class="flex items-center gap-2">
+                  <span class="font-medium">+91 86820 45934</span>
+                  <button data-copy="+91 8682045934" class="ml-auto px-2 py-1 text-xs rounded bg-slate-100 dark:bg-slate-800 focus-ring copy-btn">Copy</button>
+                </div>
+              </div>
+              <div class="p-3 rounded-lg bg-white/40 dark:bg-slate-700/40">
+                <div class="text-xs text-slate-400">Email</div>
+                <div class="flex items-center gap-2">
+                  <span class="font-medium">josephsam.m2024aids@sece.ac.in</span>
+                  <button data-copy="josephsam.m2024aids@sece.ac.in" class="ml-auto px-2 py-1 text-xs rounded bg-slate-100 dark:bg-slate-800 focus-ring copy-btn">Copy</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <div class="text-xs text-slate-400">Profiles</div>
+              <div class="mt-2 flex gap-2">
+                <a target="_blank" href="https://github.com/JosephSamM" class="px-3 py-1 rounded border border-slate-200 text-sm">GitHub</a>
+                <a target="_blank" href="https://linkedin.com/in/JosephSamM" class="px-3 py-1 rounded border border-slate-200 text-sm">LinkedIn</a>
+              </div>
+            </div>
+
+            <div class="mt-4 text-xs text-slate-400">Quick bio</div>
+            <div class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+              Motivated developer building AI-first mobile experiences and production-ready ML tools. Strong problem solving and rapid prototyping skills.
+            </div>
+          </div>
+
+          <!-- floating badges -->
+          <div class="absolute -right-6 top-10 animate-float">
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-800 shadow">Insured AI • Voice Agent</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-2">
+          <h2 class="text-2xl font-bold">About Me</h2>
+          <p class="mt-3 text-slate-600 dark:text-slate-300 max-w-3xl">
+            I'm a B.Tech student in Artificial Intelligence & Data Science at Sri Eshwar College of Engineering (CGPA 8.69).
+            I enjoy building AI-driven products, mobile apps with Flutter/Kotlin, and production-focused ML prototypes. I've worked on healthcare and
+            insurance-focused solutions and completed internships in AI engineering and app development.
+          </p>
+
+          <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-4 rounded-lg bg-white dark:bg-slate-800">
+              <div class="text-xs text-slate-400">Interests</div>
+              <div class="mt-2">AI/ML, Mobile apps, Computer Vision, Voice Agents, Automation</div>
+            </div>
+            <div class="p-4 rounded-lg bg-white dark:bg-slate-800">
+              <div class="text-xs text-slate-400">Education</div>
+              <div class="mt-2">B.Tech — AI & Data Science (2024–2028)</div>
+            </div>
+          </div>
+
+          <h3 class="mt-6 text-lg font-semibold">Recent Projects</h3>
+          <ul class="mt-3 space-y-3">
+            <li class="p-3 rounded-lg bg-white dark:bg-slate-800">
+              <div class="flex justify-between items-start">
+                <div>
+                  <strong>AI Voice Agent for Insurance Services</strong>
+                  <div class="text-xs text-slate-400">Jul 2025</div>
+                  <div class="text-sm text-slate-500 dark:text-slate-300 mt-1">AI assistant for claims, renewals, call summaries and empathetic support.</div>
+                </div>
+                <button class="ml-4 px-3 py-2 text-sm rounded bg-brandNavy text-white open-project" data-title="AI Voice Agent for Insurance Services" data-desc="Built an AI-powered assistant that helps customers with insurance policy claims, renewals, empathetic support, and real-time query resolution. Features include call summary and guidance." data-tags="AI,Voice,Insurance">Details</button>
+              </div>
+            </li>
+
+            <li class="p-3 rounded-lg bg-white dark:bg-slate-800">
+              <div class="flex justify-between items-start">
+                <div>
+                  <strong>MedAlert App</strong>
+                  <div class="text-xs text-slate-400">Apr 2025</div>
+                  <div class="text-sm text-slate-500 dark:text-slate-300 mt-1">Health risk analysis using ML + nearby hospital recommendations via Google Maps API.</div>
+                </div>
+                <button class="ml-4 px-3 py-2 text-sm rounded bg-brandNavy text-white open-project" data-title="MedAlert App" data-desc="Developed a health risk analysis app using ML to analyze medical history, age, heart-rate info, and generate risk scores. Recommends nearby hospitals using Google Maps API for emergency decision-making." data-tags="Healthcare,ML,Flutter">Details</button>
+              </div>
+            </li>
+
+            <li class="p-3 rounded-lg bg-white dark:bg-slate-800">
+              <div class="flex justify-between items-start">
+                <div>
+                  <strong>Smart Attendance (Face + Location)</strong>
+                  <div class="text-xs text-slate-400">Dec 2024</div>
+                  <div class="text-sm text-slate-500 dark:text-slate-300 mt-1">Automated attendance with face recognition, fingerprint scanning, and location tracking.</div>
+                </div>
+                <button class="ml-4 px-3 py-2 text-sm rounded bg-brandNavy text-white open-project" data-title="Smart Attendance System" data-desc="Created an automated attendance system using face recognition, fingerprint scanning, and location tracking." data-tags="CV,Biometrics,Automation">Details</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Sidebar: quick CV -->
+        <aside class="p-4 rounded-lg bg-white dark:bg-slate-800">
+          <h4 class="text-sm font-semibold">Education</h4>
+          <div class="mt-2 text-sm">
+            <div><strong>B.Tech</strong> — Artificial Intelligence & Data Science</div>
+            <div class="text-xs text-slate-400">Sri Eshwar College of Engineering (2024–2028)</div>
+            <div class="mt-3"><strong>HSC</strong> — 94% (2022–2024)</div>
+            <div class="mt-3"><strong>SSLC</strong> — 93% (2021–2022)</div>
+          </div>
+
+          <h4 class="mt-6 text-sm font-semibold">Certifications</h4>
+          <ul class="mt-2 text-sm space-y-1 text-slate-500">
+            <li>Django Web Dev (Udemy) — 2025</li>
+            <li>Flutter App Dev (Udemy) — 2025</li>
+            <li>Robotics + AI & Linux — 2025</li>
+            <li>C Programming (IIT Bombay) — 2024</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex items-center justify-between">
+        <h2 class="text-2xl font-bold">Projects</h2>
+        <div class="flex gap-2">
+          <button data-filter="all" class="px-3 py-1 rounded bg-white dark:bg-slate-800 text-sm filter-btn active">All</button>
+          <button data-filter="AI" class="px-3 py-1 rounded bg-white dark:bg-slate-800 text-sm filter-btn">AI</button>
+          <button data-filter="Mobile" class="px-3 py-1 rounded bg-white dark:bg-slate-800 text-sm filter-btn">Mobile</button>
+          <button data-filter="Web" class="px-3 py-1 rounded bg-white dark:bg-slate-800 text-sm filter-btn">Web</button>
+        </div>
+      </div>
+
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Project cards -->
+        <article class="p-4 rounded-lg bg-white dark:bg-slate-800 project-card" data-tags="AI,Voice">
+          <h3 class="font-semibold">AI Voice Agent for Insurance Services</h3>
+          <p class="text-xs text-slate-400 mt-1">Jul 2025</p>
+          <p class="mt-3 text-sm text-slate-500 dark:text-slate-300">Call summaries, claim guidance, policy comparison, empathetic support.</p>
+          <div class="mt-4 flex gap-2">
+            <button class="px-3 py-1 rounded bg-brandNavy text-white text-sm open-project" data-title="AI Voice Agent for Insurance Services" data-desc="Built an AI-powered assistant that helps customers with insurance policy claims, renewals, empathetic support, and real-time query resolution." data-tags="AI,Voice,Insurance">View</button>
+            <a class="px-3 py-1 rounded border border-slate-200 text-sm" href="#" target="_blank">Code</a>
+          </div>
+        </article>
+
+        <article class="p-4 rounded-lg bg-white dark:bg-slate-800 project-card" data-tags="Mobile,Health">
+          <h3 class="font-semibold">MedAlert App</h3>
+          <p class="text-xs text-slate-400 mt-1">Apr 2025</p>
+          <p class="mt-3 text-sm text-slate-500 dark:text-slate-300">ML-based health risk analysis + hospital recommendations.</p>
+          <div class="mt-4 flex gap-2">
+            <button class="px-3 py-1 rounded bg-brandNavy text-white text-sm open-project" data-title="MedAlert App" data-desc="Developed a health risk analysis app using ML to analyze medical history, age, heart-rate info, and generate risk scores." data-tags="Healthcare,ML,Flutter">View</button>
+            <a class="px-3 py-1 rounded border border-slate-200 text-sm" href="#" target="_blank">Play</a>
+          </div>
+        </article>
+
+        <article class="p-4 rounded-lg bg-white dark:bg-slate-800 project-card" data-tags="CV,Biometrics">
+          <h3 class="font-semibold">Smart Attendance System</h3>
+          <p class="text-xs text-slate-400 mt-1">Dec 2024</p>
+          <p class="mt-3 text-sm text-slate-500 dark:text-slate-300">Face recognition + fingerprint + location tracking for accurate attendance.</p>
+          <div class="mt-4 flex gap-2">
+            <button class="px-3 py-1 rounded bg-brandNavy text-white text-sm open-project" data-title="Smart Attendance System" data-desc="Created an automated attendance system using face recognition, fingerprint scanning, and location tracking." data-tags="CV,Biometrics,Automation">View</button>
+            <a class="px-3 py-1 rounded border border-slate-200 text-sm" href="#" target="_blank">Demo</a>
+          </div>
+        </article>
+
+        <article class="p-4 rounded-lg bg-white dark:bg-slate-800 project-card" data-tags="Web">
+          <h3 class="font-semibold">Blood Donation Platform</h3>
+          <p class="text-xs text-slate-400 mt-1">2024</p>
+          <p class="mt-3 text-sm text-slate-500 dark:text-slate-300">Interactive platform built with HTML/CSS/JS—won Intra-College Creathathon.</p>
+          <div class="mt-4 flex gap-2">
+            <button class="px-3 py-1 rounded bg-brandNavy text-white text-sm open-project" data-title="Blood Donation Platform" data-desc="Interactive platform using HTML, CSS, and JS to connect donors with recipients." data-tags="Web,HTML,CSS">View</button>
+            <a class="px-3 py-1 rounded border border-slate-200 text-sm" href="#" target="_blank">Live</a>
+          </div>
+        </article>
+
+        <article class="p-4 rounded-lg bg-white dark:bg-slate-800 project-card" data-tags="Other">
+          <h3 class="font-semibold">More Projects…</h3>
+          <p class="mt-3 text-sm text-slate-500 dark:text-slate-300">500+ additional practice problems and small tools across C, Python, and Flutter.</p>
+          <div class="mt-4 flex gap-2">
+            <a class="px-3 py-1 rounded border border-slate-200 text-sm" href="#" target="_blank">GitHub</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <h2 class="text-2xl font-bold">Experience & Internships</h2>
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-4 rounded-lg bg-white dark:bg-slate-800">
+          <div class="flex justify-between items-start">
+            <div>
+              <strong>Synapsologic (AI Engineering)</strong>
+              <div class="text-xs text-slate-400">2025</div>
+              <div class="mt-2 text-sm text-slate-500 dark:text-slate-300">Worked on AI/ML projects in facility management and space tech — model development, feature integration, execution, cross-functional collaboration.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-lg bg-white dark:bg-slate-800">
+          <div class="flex justify-between items-start">
+            <div>
+              <strong>EntroGroup (App Development)</strong>
+              <div class="text-xs text-slate-400">2025</div>
+              <div class="mt-2 text-sm text-slate-500 dark:text-slate-300">Contributed to app dev with Dart, debugging, UI work; learned Kotlin & Android Studio during practical projects.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="mt-6 text-lg font-semibold">Achievements</h3>
+      <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300">
+        <li>Winner — InsureBot Quest 2025 Hackathon.</li>
+        <li>Finalist — A2HackFest (top 20 out of 1000+ teams).</li>
+        <li>Winner — Intra-College Creathathon (2024) — Blood Donation platform.</li>
+        <li>Centum in HSE Mathematics — top 20 students.</li>
+      </ul>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <h2 class="text-2xl font-bold">Skills & Tools</h2>
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-4 rounded-lg bg-white dark:bg-slate-800">
+          <h4 class="font-semibold">Languages & Frameworks</h4>
+          <ul class="mt-3 text-sm text-slate-600 dark:text-slate-300 space-y-1">
+            <li>C, C++, Python</li>
+            <li>Dart / Flutter, Kotlin, Java (Basic)</li>
+            <li>HTML, CSS, JavaScript</li>
+            <li>MySQL, REST APIs</li>
+          </ul>
+        </div>
+
+        <div class="p-4 rounded-lg bg-white dark:bg-slate-800">
+          <h4 class="font-semibold">Tools</h4>
+          <ul class="mt-3 text-sm text-slate-600 dark:text-slate-300 space-y-1">
+            <li>VS Code, Android Studio, IntelliJ, PyCharm</li>
+            <li>GitHub, Jupyter Notebook</li>
+            <li>Canva, Excel, Power BI</li>
+          </ul>
+        </div>
+
+        <div class="p-4 rounded-lg bg-white dark:bg-slate-800">
+          <h4 class="font-semibold">AI & ML</h4>
+          <ul class="mt-3 text-sm text-slate-600 dark:text-slate-300 space-y-1">
+            <li>Model prototyping, feature engineering</li>
+            <li>Computer Vision, Biometric systems</li>
+            <li>Prompt engineering</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 shadow-soft-md">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div>
+            <h2 class="text-2xl font-bold">Get in touch</h2>
+            <p class="text-slate-600 dark:text-slate-300 mt-2">Available for internships, freelance projects, and collaborations. DM on LinkedIn or email me.</p>
+            <div class="mt-4 text-sm">
+              <div><strong>Phone:</strong> +91 8682045934</div>
+              <div><strong>Email:</strong> josephsam.m2024aids@sece.ac.in</div>
+            </div>
+          </div>
+
+          <form id="contactForm" class="flex-1 min-w-[260px]">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <input required name="name" placeholder="Your name" class="p-3 rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus-ring" />
+              <input required name="email" type="email" placeholder="Your email" class="p-3 rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus-ring" />
+            </div>
+            <input name="subject" placeholder="Subject" class="mt-3 p-3 rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus-ring w-full" />
+            <textarea required name="message" placeholder="Message" rows="4" class="mt-3 p-3 rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus-ring w-full"></textarea>
+            <div class="mt-3 flex gap-2">
+              <button type="submit" class="px-4 py-2 rounded bg-brandNavy text-white">Send message</button>
+              <button type="button" id="clearForm" class="px-4 py-2 rounded border">Clear</button>
+            </div>
+            <p id="contactStatus" class="mt-2 text-sm text-slate-500"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-sm text-slate-500">
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div>© <span id="year"></span> Joseph Sam M — Professional Portfolio</div>
+        <div class="flex gap-3">
+          <a href="#" class="hover:text-brandNavy dark:hover:text-brandGold">Privacy</a>
+          <a href="#" class="hover:text-brandNavy dark:hover:text-brandGold">Terms</a>
+          <a href="mailto:josephsam.m2024aids@sece.ac.in" class="hover:text-brandNavy dark:hover:text-brandGold">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Project Modal -->
+  <div id="projectModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 p-4">
+    <div class="max-w-3xl w-full bg-white dark:bg-slate-900 rounded-2xl p-6">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 id="modalTitle" class="text-xl font-bold">Project Title</h3>
+          <div id="modalTags" class="text-xs text-slate-400 mt-1">Tags</div>
+        </div>
+        <button id="closeModal" class="p-2 rounded bg-slate-100 dark:bg-slate-800 focus-ring">Close</button>
+      </div>
+      <p id="modalDesc" class="mt-4 text-slate-600 dark:text-slate-300"></p>
+      <div class="mt-6 flex gap-2">
+        <a id="modalRepo" href="#" target="_blank" class="px-4 py-2 rounded border">Repo</a>
+        <a id="modalLive" href="#" target="_blank" class="px-4 py-2 rounded bg-brandNavy text-white">Live / Demo</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    const $ = (sel, ctx = document) => ctx.querySelector(sel);
+    const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+    // Theme
+    const themeToggle = $('#themeToggle');
+    function setTheme(dark) { if (dark) document.documentElement.classList.add('dark'); else document.documentElement.classList.remove('dark'); localStorage.setItem('dark', dark ? '1' : '0'); }
+    const saved = localStorage.getItem('dark');
+    const prefers = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(saved === null ? prefers : saved === '1');
+    themeToggle.addEventListener('click', () => { const isDark = document.documentElement.classList.toggle('dark'); setTheme(isDark); });
+
+    // Mobile
+    const menuBtn = $('#menuBtn'), mobileMenu = $('#mobileMenu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // Smooth scroll
+    $$('a[href^="#"]').forEach(a => { a.addEventListener('click', (e) => { const href = a.getAttribute('href'); if (href === '#') return; const dest = document.querySelector(href); if (dest) { e.preventDefault(); dest.scrollIntoView({ behavior: 'smooth', block: 'start' }); if (!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden'); } }); });
+
+    // Counters
+    function animateCounters() { const counters = document.querySelectorAll('[data-target]'); counters.forEach(el => { const target = +el.getAttribute('data-target'); let current = 0; const step = Math.max(1, Math.floor(target / 100)); const timer = setInterval(() => { current += step; if (current >= target) { el.textContent = (target >= 1000) ? target + '+' : target; clearInterval(timer); } else { el.textContent = current; } }, 12); }); }
+    const hero = document.querySelector('#hero');
+    const obs = new IntersectionObserver((entries) => { if (entries[0].isIntersecting) { animateCounters(); obs.disconnect(); } }, { threshold: 0.3 });
+    obs.observe(hero);
+
+    // Copy
+    $$('.copy-btn').forEach(btn => { btn.addEventListener('click', async () => { const text = btn.dataset.copy; try { await navigator.clipboard.writeText(text); btn.textContent = 'Copied'; setTimeout(() => btn.textContent = 'Copy', 1500); } catch (e) { alert('Copy failed — please select and copy manually.'); } }); });
+
+    // Modal
+    const modal = $('#projectModal'); const modalTitle = $('#modalTitle'); const modalDesc = $('#modalDesc'); const modalTags = $('#modalTags'); const closeModal = $('#closeModal');
+    $$('.open-project').forEach(btn => { btn.addEventListener('click', () => { const title = btn.dataset.title || 'Project'; const desc = btn.dataset.desc || ''; const tags = btn.dataset.tags || ''; modalTitle.textContent = title; modalDesc.textContent = desc; modalTags.textContent = tags.split(',').map(t => t.trim()).join(' · '); modal.classList.remove('hidden'); modal.classList.add('flex'); document.body.style.overflow = 'hidden'; }); });
+    closeModal.addEventListener('click', () => { modal.classList.add('hidden'); modal.classList.remove('flex'); document.body.style.overflow = ''; });
+    modal.addEventListener('click', (e) => { if (e.target === modal) { modal.classList.add('hidden'); modal.classList.remove('flex'); document.body.style.overflow = ''; } });
+
+    // Filters
+    $$('.filter-btn').forEach(btn => { btn.addEventListener('click', () => { $$('.filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); const filter = btn.dataset.filter; $$('.project-card').forEach(card => { if (filter === 'all') card.classList.remove('hidden'); else { const tags = card.dataset.tags || ''; const ok = tags.split(',').map(t => t.trim().toLowerCase()).includes(filter.toLowerCase()); if (ok) card.classList.remove('hidden'); else card.classList.add('hidden'); } }); }); });
+
+    // Contact form (mailto fallback)
+    const contactForm = $('#contactForm'); const contactStatus = $('#contactStatus');
+    contactForm.addEventListener('submit', (e) => { e.preventDefault(); const fd = new FormData(contactForm); if (!fd.get('name') || !fd.get('email') || !fd.get('message')) { contactStatus.textContent = 'Please fill the required fields.'; return; } contactStatus.textContent = 'Preparing message…'; setTimeout(() => { contactStatus.textContent = 'Opening email client.'; const subject = encodeURIComponent(fd.get('subject') || 'Contact from portfolio'); const body = encodeURIComponent(`Name: ${fd.get('name')}\nEmail: ${fd.get('email')}\n\n${fd.get('message')}`); window.location.href = `mailto:josephsam.m2024aids@sece.ac.in?subject=${subject}&body=${body}`; }, 600); });
+    $('#clearForm').addEventListener('click', () => { contactForm.reset(); contactStatus.textContent = ''; });
+
+    // Fill year
+    $('#year').textContent = new Date().getFullYear();
+
+    // Reveal animations
+    const reveal = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('opacity-100', 'translate-y-0'); reveal.unobserve(entry.target); } }); }, { threshold: 0.15 });
+    document.querySelectorAll('section, article, aside').forEach(el => { el.classList.add('opacity-0','translate-y-4','transition','duration-700','ease-out'); reveal.observe(el); });
+
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) { modal.classList.add('hidden'); modal.classList.remove('flex'); document.body.style.overflow = ''; } });
+  </script>
+</body>
+</html>
