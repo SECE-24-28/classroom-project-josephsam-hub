@@ -26,6 +26,13 @@
     "web-vitals": "^2.1.4",
     "yup": "^1.7.1"
   },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.19",
+    "autoprefixer": "^10.4.22",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.18"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
