@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
-import { AuthProvider } from './context/AuthContext';
+import { AuthProvider } from './context/AuthContextNew';
 
 // Public Site Components
 import NavbarPublic from './components/navigation/NavbarPublic';
@@ -25,6 +25,8 @@ import ForgotPassword from './auth/ForgotPassword';
 // Portal Pages
 import PatientDashboard from './portal/patient/Dashboard';
 import AdminDashboard from './portal/admin/AdminDashboard';
+import Appointments from './patient/Appointments';
+import NotFound from './components/NotFound';
 
 // Layout Components
 const PublicLayout = ({ children }) => (
@@ -76,7 +78,7 @@ function App() {
               } />
               <Route path="/patient/appointments" element={
                 <ProtectedRoute requiredRole="patient">
-                  <PatientLayout><div className="p-6"><h1 className="text-2xl font-bold">Appointments</h1><p>Patient appointments management will be implemented here.</p></div></PatientLayout>
+                  <PatientLayout><Appointments /></PatientLayout>
                 </ProtectedRoute>
               } />
               <Route path="/patient/lab-reports" element={
@@ -151,6 +153,9 @@ function App() {
                   <AdminLayout><div className="p-6"><h1 className="text-2xl font-bold">Admin Settings</h1><p>System settings will be here.</p></div></AdminLayout>
                 </ProtectedRoute>
               } />
+              
+              {/* 404 Route */}
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
         </Router>

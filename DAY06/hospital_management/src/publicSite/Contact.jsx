@@ -12,16 +12,64 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
+  const [errors, setErrors] = useState({});
+
+  const validateForm = () => {
+    const newErrors = {};
+    
+    // Name validation - letters only, min 3 characters
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    } else if (!/^[A-Za-z\s]{3,}$/.test(formData.name.trim())) {
+      newErrors.name = 'Name must contain only letters and be at least 3 characters';
+    }
+    
+    // Email validation
+    if (!formData.email) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+    
+    // Phone validation - numeric, 10 digits
+    if (formData.phone && !/^\d{10}$/.test(formData.phone.replace(/\D/g, ''))) {
+      newErrors.phone = 'Phone number must be exactly 10 digits';
+    }
+    
+    // Message validation - min 10 characters
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleInputChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     });
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+    
     setIsSubmitting(true);
     
     // Simulate form submission
@@ -36,7 +84,16 @@ const Contact = () => {
         message: '',
         department: 'general'
       });
+      setErrors({});
     }, 2000);
+  };
+
+  const isFormValid = () => {
+    return formData.name.trim() && 
+           formData.email && 
+           formData.subject.trim() && 
+           formData.message.trim() && 
+           Object.keys(errors).length === 0;
   };
 
   const contactInfo = [
@@ -141,9 +198,17 @@ const Contact = () => {
                     required
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-hospital-red focus:border-transparent"
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-hospital-red focus:border-transparent ${
+                      errors.name ? 'border-red-500 bg-red-50' : 'border-gray-300'
+                    }`}
                     placeholder="Enter your full name"
                   />
+                  {errors.name && (
+                    <p className="mt-1 text-sm text-red-600 flex items-center">
+                      <span className="mr-1">❌</span>
+                      {errors.name}
+                    </p>
+                  )}
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
@@ -156,9 +221,17 @@ const Contact = () => {
                     required
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-hospital-red focus:border-transparent"
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-hospital-red focus:border-transparent ${
+                      errors.email ? 'border-red-500 bg-red-50' : 'border-gray-300'
+                    }`}
                     placeholder="Enter your email"
                   />
+                  {errors.email && (
+                    <p className="mt-1 text-sm text-red-600 flex items-center">
+                      <span className="mr-1">❌</span>
+                      {errors.email}
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -173,9 +246,17 @@ const Contact = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-hospital-red focus:border-transparent"
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-hospital-red focus:border-transparent ${
+                      errors.phone ? 'border-red-500 bg-red-50' : 'border-gray-300'
+                    }`}
                     placeholder="Enter your phone number"
                   />
+                  {errors.phone && (
+                    <p className="mt-1 text-sm text-red-600 flex items-center">
+                      <span className="mr-1">❌</span>
+                      {errors.phone}
+                    </p>
+                  )}
                 </div>
                 <div>
                   <label htmlFor="department" className="block text-sm font-medium text-gray-700 mb-2">
@@ -224,16 +305,24 @@ const Contact = () => {
                   rows={6}
                   value={formData.message}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-hospital-red focus:border-transparent resize-none"
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-hospital-red focus:border-transparent resize-none ${
+                    errors.message ? 'border-red-500 bg-red-50' : 'border-gray-300'
+                  }`}
                   placeholder="Enter your message here..."
                 />
+                {errors.message && (
+                  <p className="mt-1 text-sm text-red-600 flex items-center">
+                    <span className="mr-1">❌</span>
+                    {errors.message}
+                  </p>
+                )}
               </div>
 
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !isFormValid()}
                 className={`w-full py-3 px-6 rounded-lg font-semibold text-white transition-all duration-200 ${
-                  isSubmitting
+                  isSubmitting || !isFormValid()
                     ? 'bg-gray-400 cursor-not-allowed'
                     : 'bg-gradient-hospital hover:shadow-lg transform hover:-translate-y-0.5'
                 }`}

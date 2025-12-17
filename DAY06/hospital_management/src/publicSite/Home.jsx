@@ -66,7 +66,7 @@ const Home = () => {
                 👨⚕️ Find Doctor
               </Link>
               <Link
-                to="/emergency"
+                to="/contact"
                 className="bg-red-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-red-700 animate-pulse-slow"
               >
                 🚨 Emergency
@@ -207,7 +207,7 @@ const Home = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              to="/patient/register"
+              to="/register"
               className="bg-white text-hospital-red px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200"
             >
               Create Patient Account

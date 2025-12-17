@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Joe Hospital Backend</title>
+</head>
+<body>
+    <h1>Test Your Backend Deployment</h1>
+    
+    <div>
+        <h3>1. Health Check</h3>
+        <button onclick="testHealth()">Test Health Endpoint</button>
+        <div id="health-result"></div>
+    </div>
+    
+    <div>
+        <h3>2. Test Registration</h3>
+        <button onclick="testRegister()">Test Register</button>
+        <div id="register-result"></div>
+    </div>
+    
+    <div>
+        <h3>3. Test Login</h3>
+        <button onclick="testLogin()">Test Login</button>
+        <div id="login-result"></div>
+    </div>
+
+    <script>
+        // Replace with your actual backend URL
+        const BACKEND_URL = 'https://your-backend-url.onrender.com';
+        
+        async function testHealth() {
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/health`);
+                const data = await response.json();
+                document.getElementById('health-result').innerHTML = 
+                    `<pre style="color: green;">${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                document.getElementById('health-result').innerHTML = 
+                    `<pre style="color: red;">Error: ${error.message}</pre>`;
+            }
+        }
+        
+        async function testRegister() {
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/auth/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: 'Test User',
+                        email: 'test@example.com',
+                        password: 'Test123456'
+                    })
+                });
+                const data = await response.json();
+                document.getElementById('register-result').innerHTML = 
+                    `<pre style="color: ${response.ok ? 'green' : 'red'};">${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                document.getElementById('register-result').innerHTML = 
+                    `<pre style="color: red;">Error: ${error.message}</pre>`;
+            }
+        }
+        
+        async function testLogin() {
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/auth/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: 'test@example.com',
+                        password: 'Test123456'
+                    })
+                });
+                const data = await response.json();
+                document.getElementById('login-result').innerHTML = 
+                    `<pre style="color: ${response.ok ? 'green' : 'red'};">${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                document.getElementById('login-result').innerHTML = 
+                    `<pre style="color: red;">Error: ${error.message}</pre>`;
+            }
+        }
+    </script>
+</body>
+</html>
